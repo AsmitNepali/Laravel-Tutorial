@@ -18,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 // });
 // if we return json format laravel automatically know the json format
 Route::get('/', function () {
-	$name = request('name');
-	return view('test',['name'=>$name]));
+	return view('welcome');
+});
+
+Route::get('posts/{posts}', function($post) {
+	$posts = [
+		'my-first-post' => 'Hello this is my first post',
+		'my-second-post' => 'Hello this is my second post'
+	];
+
+	return view('post', [
+		'post' => $posts[$post]
+	]);
 });
