@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// if we return json format laravel automatically know the json format
 Route::get('/', function () {
-    return view('welcome');
+	return view('test'); 
 });
