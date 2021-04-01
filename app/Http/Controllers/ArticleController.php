@@ -13,8 +13,10 @@ class ArticleController extends Controller
 	}
 
 	//  Show single resource.
-    public function show($articleId) {
-    	$article = Article::find($articleId);
+
+	// This is call Route Model Binding
+	// There must be a same name of wildcard and instance name
+    public function show(Article $article) { 
     	return view('articles.show', compact('article'));
     }
 
@@ -26,37 +28,34 @@ class ArticleController extends Controller
     // Persist the new resource.
     public function store() {
     	// persist the new article
-    	request()->validate([
+    	$validatedAtributes = request()->validate([
     		'title' => 'required',
     		'excerpt' => 'required',
     		'body' => 'required'
     	]);
-    	$article = new Article();
-    	$article->title = request('title');
-    	$article->excerpt = request('excerpt');
-    	$article->body = request('body');
-    	$article->save();
+    	Article::create([
+    		'title' => request('title'),
+    		'excerpt' => request('excerpt'),
+    		'body' => request('body')
+    	]);
     	return redirect('/about');
     }
 
     // Show a view to edit an existing resource.
-    public function edit($articleId) {
-    	$article = Article::find($articleId);
+    public function edit(Article $article) {
     	return view('articles.edit',[
     		'article' => $article,
     	]);
     }
 
     // Persist the edited resource.
-    public function update($id) {
-    	
+    public function update(Article $article) {
+
     	request()->validate([
     		'title' => 'required',
     		'excerpt' => 'required',
     		'body' => 'required'
     	]);
-
-    	$article = Article::find($id);
     	$article->title = request('title');
     	$article->excerpt = request('excerpt');
     	$article->body = request('body');
