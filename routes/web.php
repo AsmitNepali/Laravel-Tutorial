@@ -22,3 +22,6 @@ Route::get('/', function () {
 	return view('welcome');
 });
 Route::get('posts/{posts}',[ Postcontroller::class,'index']);
+Route::get('contact', function() {
+	return view('contact');
+});
