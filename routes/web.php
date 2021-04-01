@@ -27,5 +27,8 @@ Route::get('contact', function() {
 });
 
 Route::get('about/', function(){
-	return view('about');
+	$articles = new App\Models\Article;
+	return view('about',
+		['articles'	=>	$articles::take(2)->latest()->get(), 
+	]);
 });
