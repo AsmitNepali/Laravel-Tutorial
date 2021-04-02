@@ -16,7 +16,7 @@ class ArticleController extends Controller
 
 	// This is call Route Model Binding
 	// There must be a same name of wildcard and instance name
-    public function show(Article $article) { 
+    public function show(Article $article) {
     	return view('articles.show', compact('article'));
     }
 
@@ -48,7 +48,7 @@ class ArticleController extends Controller
     // Delete the resource.
     public function destroy() {
 
-    }
+
 
     public function validateArticle() {
     	return request()->validate([

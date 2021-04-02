@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\SendMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('contact', function() {
 Route::get('about/', function(){
 	$articles = new App\Models\Article;
 	return view('about',
-		['articles'	=>	$articles::take(2)->latest()->get(), 
+		['articles'	=>	$articles::take(2)->latest()->get(),
 	]);
 });
 
@@ -39,3 +40,5 @@ Route::get('articles/create',[ArticleController::class,'create']);
 Route::get('articles/{article}',[ArticleController::class,'show'])->name('articles.show');
 Route::get('articles/{article}/edit',[ArticleController::class,'edit']);
 Route::put('articles/{article}',[ArticleController::class,'update']);
+Route::get('mailtemplate/', [SendMailController::class, 'index']);
+Route::get('sendmail/',[SendMailController::class, 'sendMail']);
