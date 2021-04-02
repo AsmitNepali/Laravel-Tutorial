@@ -16,10 +16,10 @@
                </td>
             </tr>
             <tr>
-               <td colspan="2" style="padding:2px; text-align: center; color: #148283; font-size: 25px; font-family: 'Neris SemiBold',arial; font-weight: bold;">Your registration has been approved</td>
+               <td colspan="2" style="padding:2px; text-align: center; color: #148283; font-size: 25px; font-weight: bold;">Your registration has been approved</td>
             </tr>
             <tr>
-               <td style="width: 40%;  text-align: center; font-family: 'Neris SemiBold'; font-weight: 200; line-height: 25px;"><span>Please log into your dashboard and complete the following onboarding steps. Once all the steps are copleted, email us at info@goafrica.tours so that we can publish your profile and your tours</span></td>
+               <td style="width: 40%;  text-align: center; font-weight: 200; line-height: 25px;"><span>Please log into your dashboard and complete the following onboarding steps. Once all the steps are copleted, email us at info@goafrica.tours so that we can publish your profile and your tours</span></td>
                <td rowspan="5" style="text-align: center; background: #18454b;"><img style="max-height: 575px;" src="/images/go-africa.png" alt="Go-Africa"></td>
             </tr>
             <tr>
