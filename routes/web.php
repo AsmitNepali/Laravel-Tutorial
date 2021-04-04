@@ -43,3 +43,7 @@ Route::get('articles/{article}/edit',[ArticleController::class,'edit']);
 Route::put('articles/{article}',[ArticleController::class,'update']);
 Route::get('mailtemplate/', [SendMailController::class, 'index']);
 Route::get('sendmail/',[SendMailController::class, 'sendMail']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
