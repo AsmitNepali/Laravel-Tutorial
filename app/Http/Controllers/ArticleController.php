@@ -23,8 +23,9 @@ class ArticleController extends Controller
 
     // Show a view to create a new resource
     public function create() {
-        $tags = Tag::all();
-    	return view('articles.create',compact('tags'));
+    	return view('articles.create',[
+            'tags' => Tag::all(),
+        ]);
     }
 
     // Persist the new resource.
