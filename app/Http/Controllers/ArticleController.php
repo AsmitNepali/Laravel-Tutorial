@@ -31,8 +31,12 @@ class ArticleController extends Controller
     // Persist the new resource.
     public function store() {
     	// persist the new article
-    	Article::create($this->validateArticle());
-    	return redirect('/about');
+        $article = new Article($this->validateArticle());
+        $article->user_id = 1;
+        $article->save();
+
+        $article->tags()->attach(request('tags'));
+        return redirect('/about');
     }
 
     // Show a view to edit an existing resource.
@@ -56,7 +60,8 @@ class ArticleController extends Controller
     	return request()->validate([
     		'title' => 'required',
     		'excerpt' => 'required',
-    		'body' => 'required'
+    		'body' => 'required',
+            'tags' => 'exists:tags,id|required'
     	]);
     }
 }
