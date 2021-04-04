@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Tag;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -22,7 +23,8 @@ class ArticleController extends Controller
 
     // Show a view to create a new resource
     public function create() {
-    	return view('articles.create');
+        $tags = Tag::all();
+    	return view('articles.create',compact('tags'));
     }
 
     // Persist the new resource.

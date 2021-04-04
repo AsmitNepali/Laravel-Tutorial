@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 	<div id="wrapper">
-		<div id="page" class="container"> 
+		<div id="page" class="container">
 			<h1 class="heading has-text-weight-bold is-size-4">New Atricle</h1>
 
 			<form method="POST" action="/articles">
@@ -12,12 +12,12 @@
 				<div class="field">
 					<label class="label" for="title">Title</label>
 						<div class="control">
-							<input 
-							type="text" 
-							name="title" 
-							id="title" 
+							<input
+							type="text"
+							name="title"
+							id="title"
 							class="input @error('title') is-danger @enderror }}"
-							value="{{ old('title') }}" 
+							value="{{ old('title') }}"
 							>
 							@error('title')
 							<p class="help is-danger">{{ $errors->first('title') }}</p>
@@ -44,13 +44,26 @@
 							@enderror
 						</div>
 				</div>
+				<div class="field">
+					<label class="label" for="body">Tags</label>
+						<div class="control">
+							<select name="tag[]">
+								@foreach($tags as $tag)
+									<option value="{{ $tag->id }}}"> {{$tag->name}} </option>
+								@endforeach
+							</select>
+							@error('tag')
+							<p class="help is-danger">{{ $message }}</p>
+							@enderror
+						</div>
+				</div>
 
 				<div class="field is-grouped">
 						<div class="control">
 							<button class="button is-link" type="submit">Submit</button>
 						</div>
 				</div>
-				
+
 			</form>
 		</div>
 	</div>
