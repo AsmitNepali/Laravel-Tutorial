@@ -47,8 +47,7 @@ class ArticleController extends Controller
 
     // Delete the resource.
     public function destroy() {
-
-
+    }
 
     public function validateArticle() {
     	return request()->validate([

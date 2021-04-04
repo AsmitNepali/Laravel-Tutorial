@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,11 +12,11 @@ class Article extends Model
 
     protected $fillable = ['title', 'excerpt', 'body'];
 
-    public function user() {
-    	return $this->belongsTo(User::class);
+    public function author() {
+    	return $this->belongsTo(User::class,'user_id');
     }
 
-    public function testFuntion(){
-
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
     }
 }
