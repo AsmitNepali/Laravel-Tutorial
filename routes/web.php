@@ -3,6 +3,7 @@
 use App\Container;
 use App\Example;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SendMailController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,7 @@ Route::get('articles/{article}/edit',[ArticleController::class,'edit']);
 Route::put('articles/{article}',[ArticleController::class,'update']);
 Route::get('mailtemplate/', [SendMailController::class, 'index']);
 Route::get('sendmail/',[SendMailController::class, 'sendMail']);
+Route::resource('contact/',ContactController::class);
 
 Auth::routes();
 
