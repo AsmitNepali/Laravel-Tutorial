@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Container;
+use App\Example;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SendMailController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,15 @@ use App\Http\Controllers\SendMailController;
 // });
 // if we return json format laravel automatically know the json format
 Route::get('/', function () {
-	return view('welcome');
+
+    $container = new Container;
+
+    $container->bind('example', function() {
+        return new Example;
+    });
+    $example = $container->resolve('example');
+    $example->go();
+	// return view('welcome');
 });
 Route::get('posts/{posts}',[ Postcontroller::class,'index']);
 Route::get('contact', function() {

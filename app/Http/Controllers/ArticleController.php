@@ -12,7 +12,6 @@ class ArticleController extends Controller
 	public function index() {
 
 	}
-
 	//  Show single resource.
 
 	// This is call Route Model Binding
