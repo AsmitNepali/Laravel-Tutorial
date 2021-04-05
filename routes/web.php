@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SendMailController;
+use App\Http\Controllers\UserNotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,6 +61,7 @@ Route::resource('contact/',ContactController::class);
 
 Route::get('payment/create', [PaymentController::class, 'create'])->middleware('auth');
 Route::post('payment/', [PaymentController::class, 'store'])->middleware('auth');
+Route::get('notifications/', [UserNotificationController::class, 'show'])->middleware('auth');
 
 Auth::routes();
 
