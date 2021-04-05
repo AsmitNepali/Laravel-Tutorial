@@ -6,11 +6,14 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-full">
     <ul class="list-outside md:list-inside">
-        @foreach($notifications as $notification)
+        @forelse($notifications as $notification)
             @if($notification->type ==='App\Notifications\PaymentReceived')
                 <li>We have received payment of {{ $notification->data['amount'] }} .</li>
             @endif
-        @endforeach
+            @empty
+                <li>No, notifications</li>
+        @endforelse
+
     </ul>
 
 </body>
